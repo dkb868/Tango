@@ -3,18 +3,18 @@ from django.db import models
 # Create your models here.
 
 class Dish(models.Model):
-	name = models.CharField()
+	name = models.CharField(max_length=50)
 	total_calories = models.IntegerField()
 	fat_calories = models.IntegerField()
-	total_fat = models.DecimalField() #g
-	saturated_fat = models.DecimalField() #g
-	trans_fat = models.DecimalField() #g
-	cholesterol = models.DecimalField() #mg
-	sodium = models.DecimalField() #mg
-	total_carbohydrates = models.DecimalField() #g
-	sugars = models.DecimalField() #g
-	dietary_fiber = models.DecimalField() #g
-	protein = models.DecimalField() #g
+	total_fat = models.DecimalField(max_digits=10, decimal_places = 2) #g
+	saturated_fat = models.DecimalField(max_digits=10,decimal_places = 2) #g
+	trans_fat = models.DecimalField(max_digits=10, decimal_places = 2) #g
+	cholesterol = models.DecimalField(max_digits=10, decimal_places = 2) #mg
+	sodium = models.DecimalField(max_digits=10, decimal_places = 2) #mg
+	total_carbohydrates = models.DecimalField(max_digits=10, decimal_places = 2) #g
+	sugars = models.DecimalField(max_digits=10, decimal_places = 2) #g
+	dietary_fiber = models.DecimalField(max_digits=10, decimal_places = 2) #g
+	protein = models.DecimalField(max_digits=10, decimal_places = 2) #g
 	vitamin_a = models.IntegerField() #%
 	vitamin_c = models.IntegerField() #%
 	calcium = models.IntegerField() #%
@@ -22,7 +22,7 @@ class Dish(models.Model):
 	dining_hall = models.ForeignKey('Halls')
 	
 class Halls(models.Model):
-	name = models.CharField()
+	name = models.CharField(max_length=50)
 	description = models.TextField()
-	location = models.CharField()
+	location = models.CharField(max_length=100)
 	
